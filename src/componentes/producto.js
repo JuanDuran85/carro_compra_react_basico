@@ -1,17 +1,18 @@
 import React from 'react';
 import {Card, Container, Row, Col, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button} from 'reactstrap';
+import './producto.css';
 
-function Producto() {  
+function Producto(props) {  
     return (
         <Col sm="4">
-            <Card>  
-                <CardImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuwTY0GHRdftGkZAckqLemynHrfSMv_edXUAf5HXvKzKzrxzhC&s"></CardImg>
+            <Card className="Card" body outline color="primary">  
+                <CardImg src={props.imagen}></CardImg>
                 <CardBody>
-                    <CardTitle>Nombre del Producto</CardTitle>
-                    <CardSubtitle><b>Precio del Producto</b>:  XXXXX</CardSubtitle>
-                    <CardText>Descripcion del producto a vender</CardText>
-                    <Button>Comprar</Button>
-                    <Button>Ver Ficha</Button>
+                    <CardTitle>{props.titulo}</CardTitle>
+                    <CardSubtitle><b>Precio:</b> {props.precio}</CardSubtitle>
+                    <CardText>{props.descripcion}</CardText>
+                    <Button className="Button">Comprar</Button>
+                    <Button className="Button">Ver Ficha</Button>
                 </CardBody>
             </Card>
         </Col>
