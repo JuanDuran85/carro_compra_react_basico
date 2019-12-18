@@ -27,8 +27,9 @@ class FichaProducto extends React.Component {
                     <ModalHeader>{this.props.props.titulo}</ModalHeader>
                     <ModalBody>
                         <CardImg src={this.props.props.imagen}></CardImg>
-                        <p>Descripción del producto: {this.props.props.descripcion}.</p>
-                        <p>Precio: {this.props.props.precio}</p>
+                        <p className="justificado"><b>Descripción del producto:</b> {this.props.props.descripcion}.</p>
+                        <p><b>Precio:</b> {this.props.props.precio}</p>
+                        <p>Solo quedan: <b>{this.props.props.stock}</b> unidades disponibles</p>
                     </ModalBody>
                     <ModalFooter className="ModalFooter">
                         <Button color="primary" onClick={this.toggle}>Comprar</Button>

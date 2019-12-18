@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, NavItem, NavLink, NavbarToggler, NavbarBrand, Nav} from 'reactstrap';
+import {Navbar, NavItem, NavLink, NavbarBrand, Nav} from 'reactstrap';
 
 class Navegacion extends React.Component {
     render(){
