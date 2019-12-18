@@ -14,6 +14,7 @@ class Producto extends React.Component {
                         <CardTitle>{this.props.titulo}</CardTitle>
                         <CardSubtitle><b>Precio:</b> {this.props.precio}</CardSubtitle>
                         <CardText>{this.props.descripcion}</CardText>
+                        <CardText>Stock: {this.props.stock}</CardText>
                         <FichaProducto props={this.props} className="Button"></FichaProducto>
                     </CardBody>
                 </Card>
