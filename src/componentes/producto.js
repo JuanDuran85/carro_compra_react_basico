@@ -12,7 +12,7 @@ class Producto extends React.Component {
                     <CardImg src={this.props.imagen}></CardImg>
                     <CardBody>
                         <CardTitle className="centrado"><b>{this.props.titulo}</b></CardTitle>
-                        <CardSubtitle><b>Precio:</b> {this.props.precio}</CardSubtitle>
+                        <CardSubtitle><b>Precio:</b> USD{this.props.precio}</CardSubtitle>
                         <CardText className="justificado"><b>Descripción:</b> {this.props.descripcion}</CardText>
                         <CardText><b>Stock:</b> {this.props.stock}</CardText>
                         <FichaProducto props={this.props} className="Button"></FichaProducto>

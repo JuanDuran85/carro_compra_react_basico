@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navbar, NavItem, NavLink, NavbarBrand, Nav} from 'reactstrap';
+import {Navbar, NavItem, NavbarBrand, Nav} from 'reactstrap';
+import Carro from './carro';
 
 class Navegacion extends React.Component {
     render(){
@@ -8,13 +9,7 @@ class Navegacion extends React.Component {
                 <NavbarBrand href="/">{this.props.titulo}</NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                        <NavLink href="/">Acerca de</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="/">Redes Sociales</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="/">Contactanos</NavLink>
+                        <Carro></Carro>
                     </NavItem>
                 </Nav>
             </Navbar>

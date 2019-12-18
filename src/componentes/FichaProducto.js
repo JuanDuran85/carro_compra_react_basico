@@ -2,14 +2,17 @@
 import React from 'react';
 import {CardImg, Button, Container, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import './producto.css';
+import {listaCarro} from '../listaCarro.json';
 
 class FichaProducto extends React.Component {
     constructor (props) {
         super();
         this.state = {
-            modal:false
+            modal:false,
+            listaCarro
         };
         this.toggle = this.toggle.bind(this);
+        this.agregarAlCarro = this.agregarAlCarro.bind(this);
     };
 
     toggle(){
@@ -17,6 +20,17 @@ class FichaProducto extends React.Component {
         this.setState(prevState => ({
             modal:!prevState.modal
         }));
+    };
+
+    agregarAlCarro () {
+        listaCarro.push({
+            "titulo":this.props.props.titulo,
+            "precio":this.props.props.precio
+        });
+        this.setState(prevState => ({
+            modal:!prevState.modal
+        }));
+        console.log(listaCarro);
     };
 
     render(){
@@ -28,11 +42,11 @@ class FichaProducto extends React.Component {
                     <ModalBody>
                         <CardImg src={this.props.props.imagen}></CardImg>
                         <p className="justificado"><b>Descripción del producto:</b> {this.props.props.descripcion}.</p>
-                        <p><b>Precio:</b> {this.props.props.precio}</p>
+                        <p><b>Precio:</b> USD{this.props.props.precio}</p>
                         <p>Solo quedan: <b>{this.props.props.stock}</b> unidades disponibles</p>
                     </ModalBody>
                     <ModalFooter className="ModalFooter">
-                        <Button color="primary" onClick={this.toggle}>Comprar</Button>
+                        <Button color="primary" onClick={this.agregarAlCarro}>Comprar</Button>
                         <Button color="secondary" onClick={this.toggle}>Regresar</Button>
                     </ModalFooter>
                 </Modal>
