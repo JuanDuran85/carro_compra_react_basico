@@ -21,7 +21,7 @@ class Carro extends React.Component{
     render(){
         const productosVenta = this.state.listaCarro.map(
             (listaCarro,i)=> {
-                console.log(i);
+                //console.log(i);
                 return(
                     <tr key={i}>
                         <td>{i+=1}</td>
@@ -31,6 +31,7 @@ class Carro extends React.Component{
                 )
             }
         );
+        
         return(
             <div>
                 <Button id="Popover1" color="info">
@@ -49,7 +50,14 @@ class Carro extends React.Component{
                                 </thead>
                                 <tbody>
                                     {productosVenta}
-                                </tbody>    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>Total:</td>
+                                        <td></td>
+                                        <td>1234</td>
+                                    </tr>
+                                </tfoot>   
                             </Table>
                         </PopoverBody>
                     </Popover>

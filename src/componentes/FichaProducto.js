@@ -16,7 +16,7 @@ class FichaProducto extends React.Component {
     };
 
     toggle(){
-        console.log(this.props.props);
+        //console.log(this.props.props);
         this.setState(prevState => ({
             modal:!prevState.modal
         }));
@@ -30,7 +30,7 @@ class FichaProducto extends React.Component {
         this.setState(prevState => ({
             modal:!prevState.modal
         }));
-        console.log(listaCarro);
+        //console.log(listaCarro);
     };
 
     render(){

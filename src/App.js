@@ -5,7 +5,7 @@ import Navegacion from './componentes/Navegacion';
 import './App.css';
 import {listaProductos} from './listaProductos.json';
 
-console.log(listaProductos);
+//console.log(listaProductos);
 //function App() {
 class App extends React.Component {
   //se realiza el constructor antes del render
@@ -21,7 +21,7 @@ class App extends React.Component {
   render(){
     const arregloComponente = this.state.listaProductos.map(
       (listaProductos,i) => {
-        console.log(i);
+        //console.log(i);
         return (
             <Producto 
               key={i}
