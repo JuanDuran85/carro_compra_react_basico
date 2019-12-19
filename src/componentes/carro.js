@@ -19,9 +19,14 @@ class Carro extends React.Component{
     };
 
     render(){
+        let arreglo1 = [];
+        let totalCarro = 0;
         const productosVenta = this.state.listaCarro.map(
             (listaCarro,i)=> {
-                //console.log(i);
+                arreglo1.push(parseInt(listaCarro.precio));
+                totalCarro = arreglo1.reduce((total,value) =>
+                total+value,0
+            );
                 return(
                     <tr key={i}>
                         <td>{i+=1}</td>
@@ -31,7 +36,7 @@ class Carro extends React.Component{
                 )
             }
         );
-        
+
         return(
             <div>
                 <Button id="Popover1" color="info">
@@ -53,9 +58,9 @@ class Carro extends React.Component{
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td>Total:</td>
+                                        <td><b>Total:</b></td>
                                         <td></td>
-                                        <td>1234</td>
+                                        <td>{totalCarro} CLP</td>
                                     </tr>
                                 </tfoot>   
                             </Table>
