@@ -7,14 +7,14 @@ import FichaProducto from './FichaProducto';
 class Producto extends React.Component {
     render(){
         return (
-            <Col sm="4">
+            <Col sm="4" className="card-deck">
                 <Card className="Card" body outline color="primary">  
                     <CardImg src={this.props.imagen}></CardImg>
                     <CardBody>
-                        <CardTitle className="centrado"><b>{this.props.titulo}</b></CardTitle>
-                        <CardSubtitle><b>Precio:</b> USD{this.props.precio}</CardSubtitle>
-                        <CardText className="justificado"><b>Descripción:</b> {this.props.descripcion}</CardText>
-                        <CardText><b>Stock:</b> {this.props.stock}</CardText>
+                        <CardTitle className="text-center text-danger">{this.props.titulo}</CardTitle>
+                        <CardSubtitle><b>Precio:</b> {this.props.precio} CLP</CardSubtitle>
+                        <CardText className="text-justify"><b>Descripción:</b> {this.props.descripcion}</CardText>
+                        <CardText>Stock: {this.props.stock} unidades</CardText>
                         <FichaProducto props={this.props} className="Button"></FichaProducto>
                     </CardBody>
                 </Card>

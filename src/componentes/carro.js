@@ -7,7 +7,7 @@ class Carro extends React.Component{
         super();
         this.state = {
             popoverOpen:false,
-            listaCarro
+            listaCarro,
         };
         this.toggle = this.toggle.bind(this);
     };
@@ -18,15 +18,23 @@ class Carro extends React.Component{
         }));
     };
 
+    calcularTotal(){
+        let arregloPrecios = [];
+        let totalPrecio = 0;
+        listaCarro.map(
+            (listaCarro,i)=> {
+                arregloPrecios.push(parseInt(listaCarro.precio));
+                totalPrecio = arregloPrecios.reduce((a,b)=>(a+b),0)*1000;
+                return (totalPrecio);
+            }
+        );
+        
+        return (new Intl.NumberFormat("es-CL").format(totalPrecio))
+    };
+
     render(){
-        let arreglo1 = [];
-        let totalCarro = 0;
         const productosVenta = this.state.listaCarro.map(
             (listaCarro,i)=> {
-                arreglo1.push(parseInt(listaCarro.precio));
-                totalCarro = arreglo1.reduce((total,value) =>
-                total+value,0
-            );
                 return(
                     <tr key={i}>
                         <td>{i+=1}</td>
@@ -60,9 +68,9 @@ class Carro extends React.Component{
                                     <tr>
                                         <td><b>Total:</b></td>
                                         <td></td>
-                                        <td>{totalCarro} CLP</td>
+                                        <td>{this.calcularTotal()} CLP</td>
                                     </tr>
-                                </tfoot>   
+                                </tfoot>  
                             </Table>
                         </PopoverBody>
                     </Popover>
