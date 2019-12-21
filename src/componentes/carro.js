@@ -28,7 +28,8 @@ class Carro extends React.Component{
                 return (totalPrecio);
             }
         );
-        return (totalPrecio)
+        
+        return (new Intl.NumberFormat("es-CL").format(totalPrecio))
     };
 
     render(){
@@ -66,7 +67,7 @@ class Carro extends React.Component{
                                     <tr>
                                         <td><b>Total:</b></td>
                                         <td></td>
-                                        <td>{this.calcularTotal()}</td>
+                                        <td>{this.calcularTotal()} CLP</td>
                                     </tr>
                                 </tfoot>  
                             </Table>

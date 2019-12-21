@@ -21,11 +21,12 @@ class FichaProducto extends React.Component {
         //console.log(this.props.props);
         this.setState(prevState => ({
             modal:!prevState.modal,
-            stocks:this.props.props.stock
         }));
     };
 
     agregarAlCarro () {
+        let valor = parseInt(this.props.props.stock)-1;
+        console.log(valor);
         listaCarro.push({
             "titulo":this.props.props.titulo,
             "precio":this.props.props.precio
@@ -33,7 +34,7 @@ class FichaProducto extends React.Component {
 
         this.setState(prevState => ({
             modal:!prevState.modal,
-            stocks:this.state.stocks-1
+            stocks:parseInt(this.props.props.stock)-1
         }));
     };
 
@@ -47,7 +48,7 @@ class FichaProducto extends React.Component {
                         <CardImg src={this.props.props.imagen}></CardImg>
                         <p className="text-justify">Descripción del producto: {this.props.props.descripcion}.</p>
                         <p>Precio: {this.props.props.precio} pesos chilenos</p>
-                        <p>Stock: {this.props.props.stock} unidades</p>
+                        <p>Stock: {this.state.stocks} unidades</p>
                     </ModalBody>
                     <ModalFooter className="ModalFooter">
                         <Button color="primary" onClick={this.agregarAlCarro}>Comprar</Button>
