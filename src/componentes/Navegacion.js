@@ -9,7 +9,7 @@ class Navegacion extends React.Component {
                 <NavbarBrand href="/">{this.props.titulo}</NavbarBrand>
                 <Nav className="ml-auto" navbar>
                     <NavItem>
-                        <Carro></Carro>
+                        <Carro listaCarro={this.props.listaCarro}/>
                     </NavItem>
                 </Nav>
             </Navbar>

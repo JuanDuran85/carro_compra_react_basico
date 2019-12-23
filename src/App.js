@@ -1,8 +1,8 @@
 import React from 'react';
-import Producto from './componentes/producto';
 import {Row, Container} from 'reactstrap';
-import Navegacion from './componentes/Navegacion';
 import './App.css';
+import Producto from './componentes/producto';
+import Navegacion from './componentes/Navegacion';
 import {listaProductos} from './listaProductos.json';
 
 //console.log(listaProductos);
@@ -15,9 +15,17 @@ class App extends React.Component {
 
     //estado del componente
     this.state = {
-      listaProductos
+      listaProductos:[],
+      listaCarro:[]
     };
   };
+  componentDidMount(){
+    this.setState({listaProductos:listaProductos})
+  }
+  listaCarroVer=listaCarro=>{
+    console.log(listaCarro)
+    this.setState({listaCarro:listaCarro})
+  }
   render(){
     const arregloComponente = this.state.listaProductos.map(
       (listaProductos,i) => {
@@ -30,13 +38,14 @@ class App extends React.Component {
               descripcion={listaProductos.descripcion} 
               precio={listaProductos.precio}
               stock={listaProductos.stock}
+              listaCarro={(e) => this.listaCarroVer(e)}
             />
         );
       }
     );
     return (
       <Container>
-        <Navegacion titulo="Carro de compra con ReactJS"/>
+        <Navegacion titulo="Carro de compras con ReactJS" listaCarro={this.state.listaCarro}/>
           <Row>
             {arregloComponente}
           </Row>

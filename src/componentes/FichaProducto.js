@@ -10,13 +10,21 @@ class FichaProducto extends React.Component {
         super();
         this.state = {
             modal:false,
-            listaCarro,
-            listaProductos
+            listaCarro:[],
+            listaProductos:[],
+            cantidadproductoreducido:null,
+            stocks:null
         };
+    };
+    
+    
+    componentDidMount() {
+        this.setState({listaCarro:listaCarro,listaProductos:listaProductos,stocks:this.props.props.stock})
         this.toggle = this.toggle.bind(this);
         this.agregarAlCarro = this.agregarAlCarro.bind(this);
-    };
-
+        // console.log(this.props)
+    }
+    
     toggle(){
         //console.log(this.props.props);
         this.setState(prevState => ({
@@ -24,18 +32,21 @@ class FichaProducto extends React.Component {
         }));
     };
 
-    agregarAlCarro () {
-        let valor = parseInt(this.props.props.stock)-1;
+    agregarAlCarro (propsNew) {
+        // console.log(propsNew)
+        let valor = parseInt(this.state.stocks)-1;
         console.log(valor);
         listaCarro.push({
-            "titulo":this.props.props.titulo,
-            "precio":this.props.props.precio
+            "titulo":propsNew.titulo,
+            "precio":propsNew.precio
         });
 
         this.setState(prevState => ({
             modal:!prevState.modal,
-            stocks:parseInt(this.props.props.stock)-1
+            stocks:parseInt(this.state.stocks)-1
         }));
+
+        this.props.reducirCantidad(valor,listaCarro)
     };
 
     render(){
@@ -51,7 +62,7 @@ class FichaProducto extends React.Component {
                         <p>Stock: {this.state.stocks} unidades</p>
                     </ModalBody>
                     <ModalFooter className="ModalFooter">
-                        <Button color="primary" onClick={this.agregarAlCarro}>Comprar</Button>
+                        <Button color="primary" onClick={()=>this.agregarAlCarro(this.props.props)}>Comprar</Button>
                         <Button color="secondary" onClick={this.toggle}>Regresar</Button>
                     </ModalFooter>
                 </Modal>

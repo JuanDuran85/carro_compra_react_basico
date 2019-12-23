@@ -7,10 +7,16 @@ class Carro extends React.Component{
         super();
         this.state = {
             popoverOpen:false,
-            listaCarro,
+            listaCarro:[],
         };
         this.toggle = this.toggle.bind(this);
     };
+
+    componentDidMount() {
+        console.log("Carro componente: ",this.props.listaCarro)
+        this.setState({listaCarro:listaCarro})
+    }
+    
 
     toggle(){
         this.setState(prevState => ({
